@@ -8,4 +8,8 @@ public class Hangman {
     public int length() {
         return word.length();
     }
+
+    public int tries() {
+        return 12;
+    }
 }

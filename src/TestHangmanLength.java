@@ -2,7 +2,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestHangman {
+public class TestHangmanLength {
 
     @Test
     public void length_of_word_when_game_start() {
