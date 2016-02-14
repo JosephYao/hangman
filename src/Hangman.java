@@ -1,5 +1,7 @@
 public class Hangman {
+    private static final int MAX_TRIES = 12;
     private final String word;
+    private int tries = MAX_TRIES;
 
     public Hangman(String word) {
         this.word = word;
@@ -10,7 +12,7 @@ public class Hangman {
     }
 
     public int tries() {
-        return 12;
+        return tries;
     }
 
     public String used() {
@@ -19,5 +21,9 @@ public class Hangman {
 
     public String discovered() {
         return "w_rd";
+    }
+
+    public void type(char c) {
+        tries--;
     }
 }
