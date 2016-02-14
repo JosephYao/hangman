@@ -16,4 +16,8 @@ public class Hangman {
     public String used() {
         return "aeiou";
     }
+
+    public String discovered() {
+        return "w_rd";
+    }
 }
