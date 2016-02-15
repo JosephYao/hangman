@@ -12,7 +12,6 @@ import static cn.codingstyle.hangman.HangmanHelper.*;
 public class TestHangmanGameOver {
 
     Hangman hangman = new Hangman("word");
-    private static final char ANY_CHAR = 'a';
 
     @Test
     public void game_is_over_when_type_a_char_after_all_tries_used() {

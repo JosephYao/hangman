@@ -10,7 +10,6 @@ import static cn.codingstyle.hangman.HangmanHelper.*;
 
 public class TestHangmanTries {
 
-    private static final char ANY_CHAR = 'a';
     Hangman hangman = new Hangman("word");
 
     @Test
