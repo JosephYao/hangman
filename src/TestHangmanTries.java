@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.stream.IntStream;
+
 import static org.junit.Assert.assertEquals;
 
 public class TestHangmanTries {
@@ -18,5 +20,20 @@ public class TestHangmanTries {
         hangman.type(ANY_CHAR);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
+    }
+
+    @Test
+    public void tries_return_0_when_type_a_char_after_all_tries_used() {
+        allTriesUsed();
+
+        hangman.type(ANY_CHAR);
+
+        assertEquals(0, hangman.tries());
+    }
+
+    private void allTriesUsed() {
+        IntStream.range(0, 12).forEach(i -> {
+            hangman.type(ANY_CHAR);
+        });
     }
 }

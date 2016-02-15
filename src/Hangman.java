@@ -24,6 +24,7 @@ public class Hangman {
     }
 
     public void type(char c) {
-        tries--;
+        if (tries > 0)
+            tries--;
     }
 }
