@@ -1,12 +1,15 @@
+package cn.codingstyle.hangman;
+
 import org.junit.Test;
 
 import java.util.stream.IntStream;
 
 import static org.junit.Assert.assertEquals;
 
+import static cn.codingstyle.hangman.HangmanHelper.*;
+
 public class TestHangmanTries {
 
-    private static final int MAX_TRIES = 12;
     private static final char ANY_CHAR = 'a';
     Hangman hangman = new Hangman("word");
 

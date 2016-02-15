@@ -1,3 +1,5 @@
+package cn.codingstyle.hangman;
+
 import org.junit.Test;
 
 import java.util.stream.IntStream;
@@ -5,11 +7,12 @@ import java.util.stream.IntStream;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import static cn.codingstyle.hangman.HangmanHelper.*;
+
 public class TestHangmanGameOver {
 
     Hangman hangman = new Hangman("word");
     private static final char ANY_CHAR = 'a';
-    private static final int MAX_TRIES = 12;
 
     @Test
     public void game_is_over_when_type_a_char_after_all_tries_used() {
@@ -23,8 +26,6 @@ public class TestHangmanGameOver {
     }
 
     private void allTriesUsed() {
-        IntStream.range(0, MAX_TRIES).forEach(i -> {
-            hangman.type(ANY_CHAR);
-        });
+        IntStream.range(0, MAX_TRIES).forEach(i -> hangman.type(ANY_CHAR));
     }
 }

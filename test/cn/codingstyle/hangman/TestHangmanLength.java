@@ -1,3 +1,5 @@
+package cn.codingstyle.hangman;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

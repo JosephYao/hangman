@@ -1,3 +1,5 @@
+package cn.codingstyle.hangman;
+
 public class Hangman {
     private static final int MAX_TRIES = 12;
     private final String word;
