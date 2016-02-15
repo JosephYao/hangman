@@ -27,4 +27,9 @@ public class Hangman {
         if (tries > 0)
             tries--;
     }
+
+    public void whenGameOver(Runnable whenGameOver) {
+        if (tries == 0)
+            whenGameOver.run();
+    }
 }

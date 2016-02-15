@@ -3,6 +3,8 @@ import org.junit.Test;
 import java.util.stream.IntStream;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class TestHangmanTries {
 
@@ -29,6 +31,17 @@ public class TestHangmanTries {
         hangman.type(ANY_CHAR);
 
         assertEquals(0, hangman.tries());
+    }
+
+    @Test
+    public void game_is_over_when_type_a_char_after_all_tries_used() {
+        allTriesUsed();
+        Runnable mockWhenGameOver = mock(Runnable.class);
+        hangman.type(ANY_CHAR);
+
+        hangman.whenGameOver(mockWhenGameOver);
+
+        verify(mockWhenGameOver).run();
     }
 
     private void allTriesUsed() {
