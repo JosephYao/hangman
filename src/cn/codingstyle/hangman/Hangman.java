@@ -4,6 +4,7 @@ public class Hangman {
     private static final int MAX_TRIES = 12;
     private final String word;
     private int tries = MAX_TRIES;
+    private String used = "aeiou";
 
     public Hangman(String word) {
         this.word = word;
@@ -18,7 +19,7 @@ public class Hangman {
     }
 
     public String used() {
-        return "aeiou";
+        return used;
     }
 
     public String discovered() {
@@ -26,6 +27,16 @@ public class Hangman {
     }
 
     public void type(char c) {
+        reduceTries();
+        appendCharToUsed(c);
+    }
+
+    private void appendCharToUsed(char c) {
+        if (used.indexOf(c) == -1)
+            used += String.valueOf(c);
+    }
+
+    private void reduceTries() {
         if (tries > 0)
             tries--;
     }
