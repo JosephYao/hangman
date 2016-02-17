@@ -7,9 +7,10 @@ import static org.junit.Assert.assertEquals;
 public class TestHangmanDiscovered {
 
     @Test
-    public void discovered_word_when_game_start() {
-        Hangman hangman = new Hangman("word");
+    public void discovered_word_when_game_start_with_one_vowel_char_word() {
+        Hangman hangman = new Hangman("a");
 
-        assertEquals("w_rd", hangman.discovered());
+        assertEquals("a", hangman.discovered());
     }
+    
 }
