@@ -9,23 +9,19 @@ public class HangmanHelper {
     private final Hangman hangman = new Hangman("word");
 
     private void allTriesUsed() {
-        IntStream.range(0, MAX_TRIES).forEach(i -> hangman.type(ANY_CHAR));
+        IntStream.range(0, MAX_TRIES).forEach(i -> hangman.type(ANY_CHAR, ()->{}));
     }
 
-    public void typeAnyCharAfterAllTriesUsed() {
+    public void typeAnyCharAfterAllTriesUsed(Runnable mockWhenGameOver) {
         allTriesUsed();
-        typeAnyChar();
-    }
-
-    public void whenGameOver(Runnable whenGameOver) {
-        hangman.whenGameOver(whenGameOver);
+        typeAnyChar(mockWhenGameOver);
     }
 
     public int tries() {
         return hangman.tries();
     }
 
-    public void typeAnyChar() {
-        hangman.type(ANY_CHAR);
+    public void typeAnyChar(Runnable mockWhenGameOver) {
+        hangman.type(ANY_CHAR, mockWhenGameOver);
     }
 }

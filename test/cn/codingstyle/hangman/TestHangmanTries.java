@@ -16,14 +16,14 @@ public class TestHangmanTries {
 
     @Test
     public void tries_decrease_one_when_type_a_char() {
-        hangman.typeAnyChar();
+        hangman.typeAnyChar(()->{});
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
     }
 
     @Test
     public void tries_return_0_when_type_a_char_after_all_tries_used() {
-        hangman.typeAnyCharAfterAllTriesUsed();
+        hangman.typeAnyCharAfterAllTriesUsed(()->{});
 
         assertEquals(0, hangman.tries());
     }
