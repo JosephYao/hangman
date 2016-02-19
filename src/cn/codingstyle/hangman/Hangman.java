@@ -1,5 +1,9 @@
 package cn.codingstyle.hangman;
 
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.joining;
+
 public class Hangman {
     private static final int MAX_TRIES = 12;
     private final String word;
@@ -23,11 +27,24 @@ public class Hangman {
     }
 
     public String discovered() {
-        if (used.contains(word)) {
-            return word;
-        } else {
+        return charsOfWord()
+                .map(this::discoveredEachChar)
+                .collect(joining());
+    }
+
+    private Stream<Character> charsOfWord() {
+        return word.chars().mapToObj(i -> (char)i);
+    }
+
+    private String discoveredEachChar(char c) {
+        if (isCharDiscovered(c))
+            return String.valueOf(c);
+        else
             return "_";
-        }
+    }
+
+    private boolean isCharDiscovered(char c) {
+        return used.indexOf(c) > -1;
     }
 
     public void type(char c, Runnable gameOver) {
