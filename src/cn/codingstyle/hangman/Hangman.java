@@ -32,40 +32,44 @@ public class Hangman {
                 .collect(joining());
     }
 
-    private Stream<Character> charsOfWord() {
-        return word.chars().mapToObj(i -> (char)i);
-    }
-
-    private String discoveredEachChar(char c) {
-        if (isCharDiscovered(c))
-            return String.valueOf(c);
-        else
-            return "_";
-    }
-
-    private boolean isCharDiscovered(char c) {
-        return used.indexOf(c) > -1;
-    }
-
     public void type(char c, Runnable gameOver) {
         reduceTries();
         appendCharToUsed(c);
         runIfGameOver(gameOver);
     }
 
+    private Stream<Character> charsOfWord() {
+        return word.chars().mapToObj(i -> (char)i);
+    }
+
+    private String discoveredEachChar(char c) {
+        if (isCharUsed(c))
+            return String.valueOf(c);
+        else
+            return "_";
+    }
+
+    private boolean isCharUsed(char c) {
+        return used.indexOf(c) > -1;
+    }
+
     private void runIfGameOver(Runnable gameOver) {
-        if (tries == 0)
+        if (!canTry())
             gameOver.run();
     }
 
     private void appendCharToUsed(char c) {
-        if (used.indexOf(c) == -1)
+        if (!isCharUsed(c))
             used += String.valueOf(c);
     }
 
     private void reduceTries() {
-        if (tries > 0)
+        if (canTry())
             tries--;
+    }
+
+    private boolean canTry() {
+        return tries > 0;
     }
 
 }
