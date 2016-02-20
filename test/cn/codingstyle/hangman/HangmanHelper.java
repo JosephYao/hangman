@@ -5,6 +5,7 @@ import java.util.stream.IntStream;
 public class HangmanHelper {
     public static final int MAX_TRIES = 12;
     private static final char ANY_CHAR = 'a';
+    private static final char NOT_CONTAINED_CHAR = 'z';
 
     private final Hangman hangman;
 
@@ -17,7 +18,7 @@ public class HangmanHelper {
     }
 
     private void allTriesUsed() {
-        IntStream.range(0, MAX_TRIES).forEach(i -> typeAnyChar());
+        IntStream.range(0, MAX_TRIES).forEach(i -> typeNotContainedChar());
     }
 
     public void typeAnyCharAndCheckAfterAllTriesUsed(Runnable gameOver) {
@@ -27,15 +28,15 @@ public class HangmanHelper {
 
     public void typeAnyCharAfterAllTriesUsed() {
         allTriesUsed();
-        typeAnyChar();
+        typeNotContainedChar();
     }
 
     public int tries() {
         return hangman.tries();
     }
 
-    public void typeAnyChar() {
-        type(ANY_CHAR);
+    public void typeNotContainedChar() {
+        type(NOT_CONTAINED_CHAR);
     }
 
     public void typeAnyCharAndCheck(Runnable gameOver) {
