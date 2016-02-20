@@ -6,7 +6,15 @@ public class HangmanHelper {
     public static final int MAX_TRIES = 12;
     private static final char ANY_CHAR = 'a';
 
-    private final Hangman hangman = new Hangman("word");
+    private final Hangman hangman;
+
+    public HangmanHelper() {
+        this("word");
+    }
+
+    public HangmanHelper(String word) {
+        hangman = new Hangman(word);
+    }
 
     private void allTriesUsed() {
         IntStream.range(0, MAX_TRIES).forEach(i -> typeAnyChar());
@@ -40,5 +48,9 @@ public class HangmanHelper {
 
     public void type(char c) {
         hangman.type(c, ()->{});
+    }
+
+    public String discovered() {
+        return hangman.discovered();
     }
 }
