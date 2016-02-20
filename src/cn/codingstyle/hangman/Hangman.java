@@ -33,7 +33,7 @@ public class Hangman {
     }
 
     public void type(char c, Runnable gameOver) {
-        reduceTries();
+        reduceTries(c);
         appendCharToUsed(c);
         runIfGameOver(gameOver);
     }
@@ -63,9 +63,13 @@ public class Hangman {
             used += String.valueOf(c);
     }
 
-    private void reduceTries() {
-        if (canTry())
+    private void reduceTries(char c) {
+        if (canTry() && isCharNotContained(c))
             tries--;
+    }
+
+    private boolean isCharNotContained(char c) {
+        return word.indexOf(c) == -1;
     }
 
     private boolean canTry() {
