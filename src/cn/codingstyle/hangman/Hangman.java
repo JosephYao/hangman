@@ -32,7 +32,7 @@ public class Hangman {
                 .collect(joining());
     }
 
-    public void type(char c, Runnable gameOver) {
+    public void type(char c, Runnable gameOver, Runnable gameWin) {
         reduceTries(c);
         appendCharToUsed(c);
         runIfGameOver(gameOver);

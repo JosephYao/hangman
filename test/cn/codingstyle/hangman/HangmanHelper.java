@@ -21,9 +21,9 @@ public class HangmanHelper {
         IntStream.range(0, MAX_TRIES).forEach(i -> typeNotContainedChar());
     }
 
-    public void typeAnyCharAndCheckAfterAllTriesUsed(Runnable gameOver) {
+    public void typeAnyCharAndCheckGameOverAfterAllTriesUsed(Runnable gameOver) {
         allTriesUsed();
-        typeAnyCharAndCheck(gameOver);
+        typeAnyCharAndCheckGameOver(gameOver);
     }
 
     public void typeAnyCharAfterAllTriesUsed() {
@@ -39,8 +39,8 @@ public class HangmanHelper {
         type(NOT_CONTAINED_CHAR);
     }
 
-    public void typeAnyCharAndCheck(Runnable gameOver) {
-        hangman.type(ANY_CHAR, gameOver);
+    public void typeAnyCharAndCheckGameOver(Runnable gameOver) {
+        hangman.type(ANY_CHAR, gameOver, ()->{});
     }
 
     public String used() {
@@ -48,10 +48,14 @@ public class HangmanHelper {
     }
 
     public void type(char c) {
-        hangman.type(c, ()->{});
+        hangman.type(c, ()->{}, ()->{});
     }
 
     public String discovered() {
         return hangman.discovered();
+    }
+
+    public void typeAnyCharAndCheckGameWin(Runnable gameWin) {
+        hangman.type(ANY_CHAR, ()->{}, gameWin);
     }
 }
