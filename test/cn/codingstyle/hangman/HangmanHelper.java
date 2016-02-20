@@ -6,6 +6,7 @@ public class HangmanHelper {
     public static final int MAX_TRIES = 12;
     private static final char ANY_CHAR = 'a';
     private static final char NOT_CONTAINED_CHAR = 'z';
+    public static final char CONTAINED_CONSONANT_CHAR = 'g';
 
     private final Hangman hangman;
 

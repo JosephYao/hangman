@@ -22,15 +22,6 @@ public class TestHangmanTries {
     }
     
     @Test
-    public void tries_remain_unchanged_when_type_a_contained_char_at_first_time() {
-        hangman = new HangmanHelper("game");
-
-        hangman.type('g');
-
-        assertEquals(MAX_TRIES, hangman.tries());
-    }
-
-    @Test
     public void tries_return_0_when_type_any_char_after_all_tries_used() {
         hangman.typeAnyCharAfterAllTriesUsed();
 
