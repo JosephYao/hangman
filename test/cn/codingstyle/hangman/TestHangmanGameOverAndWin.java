@@ -33,4 +33,13 @@ public class TestHangmanGameOverAndWin {
         verify(gameWin, never()).run();
     }
 
+    @Test
+    public void game_is_win_when_all_chars_discovered() {
+        Hangman hangman = new Hangman("eye");
+
+        hangman.type('y', gameOver, gameWin);
+
+        verify(gameWin).run();
+    }
+
 }

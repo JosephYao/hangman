@@ -36,6 +36,16 @@ public class Hangman {
         reduceTries(c);
         appendCharToUsed(c);
         runIfGameOver(gameOver);
+        runIfGameWin(gameWin);
+    }
+
+    private void runIfGameWin(Runnable gameWin) {
+        if (allCharsDiscovered())
+            gameWin.run();
+    }
+
+    private boolean allCharsDiscovered() {
+        return word.equals(discovered());
     }
 
     private Stream<Character> charsOfWord() {
