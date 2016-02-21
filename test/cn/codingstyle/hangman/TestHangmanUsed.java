@@ -17,14 +17,23 @@ public class TestHangmanUsed {
     }
 
     @Test
-    public void nothing_appended_to_used_when_type_a_vowel_char() {
+    public void nothing_appended_to_used_when_type_a_vowel() {
         hangman.type(VOWEL);
 
         assertEquals(ALL_VOWELS, hangman.used());
     }
 
     @Test
-    public void char_will_be_appended_to_used_when_type_a_consonant_char() {
+    public void char_appended_to_used_when_type_a_consonant_first_time() {
+        hangman.type(CONSONANT);
+
+        assertEquals(ALL_VOWELS + String.valueOf(CONSONANT), hangman.used());
+    }
+
+    @Test
+    public void nothing_appended_to_used_when_type_a_consonant_again() {
+        hangman.type(CONSONANT);
+
         hangman.type(CONSONANT);
 
         assertEquals(ALL_VOWELS + String.valueOf(CONSONANT), hangman.used());
