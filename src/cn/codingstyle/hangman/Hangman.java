@@ -80,7 +80,7 @@ public class Hangman {
 
     private void appendCharToUsed(char c) {
         if (!isCharUsed(c))
-            used += String.valueOf(c);
+            used += c;
     }
 
     private boolean isCharUsed(char c) {
