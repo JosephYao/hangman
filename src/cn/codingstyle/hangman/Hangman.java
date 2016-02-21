@@ -24,7 +24,7 @@ public class Hangman {
     }
 
     public String discovered() {
-        return "_o__";
+        return word;
     }
 
     public void type(char c, Runnable gameOver) {
