@@ -28,12 +28,12 @@ public class Hangman {
     }
 
     public void type(char c) {
-        appendCharToUsed(c);
         decreaseTries(c);
+        appendCharToUsed(c);
     }
 
     private void decreaseTries(char c) {
-        if (isCharNotContained(c))
+        if (isCharNotContained(c) || isCharUsed(c))
             tries--;
     }
 
@@ -42,11 +42,11 @@ public class Hangman {
     }
 
     private void appendCharToUsed(char c) {
-        if (isCharNotUsed(c))
+        if (!isCharUsed(c))
             used += String.valueOf(c);
     }
 
-    private boolean isCharNotUsed(char c) {
-        return used.indexOf(c) == -1;
+    private boolean isCharUsed(char c) {
+        return used.indexOf(c) > -1;
     }
 }
