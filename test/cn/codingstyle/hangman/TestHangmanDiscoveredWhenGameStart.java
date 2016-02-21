@@ -22,4 +22,11 @@ public class TestHangmanDiscoveredWhenGameStart {
 
         assertEquals("_", hangman.discovered());
     }
+
+    @Test
+    public void discovered_of_two_chars_word() {
+        Hangman hangman = new Hangman("am");
+
+        assertEquals("a_", hangman.discovered());
+    }
 }
