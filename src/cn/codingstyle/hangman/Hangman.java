@@ -1,7 +1,9 @@
 package cn.codingstyle.hangman;
 
 public class Hangman {
+    private static final String ALL_VOWELS = "aeiou";
     private final String word;
+    private String used = ALL_VOWELS;
 
     public Hangman(String word) {
         this.word = word;
@@ -16,7 +18,7 @@ public class Hangman {
     }
 
     public String used() {
-        return "aeiou";
+        return used;
     }
 
     public String discovered() {
@@ -24,6 +26,11 @@ public class Hangman {
     }
 
     public void type(char c) {
+        if (isCharNotUsed(c))
+            used += String.valueOf(c);
+    }
 
+    private boolean isCharNotUsed(char c) {
+        return used.indexOf(c) == -1;
     }
 }
