@@ -2,8 +2,6 @@ package cn.codingstyle.hangman;
 
 import org.junit.Test;
 
-import java.util.stream.IntStream;
-
 import static org.junit.Assert.assertEquals;
 import static cn.codingstyle.hangman.HangmanHelper.*;
 
@@ -42,14 +40,11 @@ public class TestHangmanTries {
 
     @Test
     public void tries_return_0_even_exceed_max_tries() {
-        allTriesUsed();
+        hangman.allTriesUsed();
 
         hangman.typeButNotCheckGameOver(NOT_CONTAINED_CHAR);
 
         assertEquals(0, hangman.tries());
     }
 
-    private void allTriesUsed() {
-        IntStream.range(0, MAX_TRIES).forEach(i -> hangman.typeButNotCheckGameOver(NOT_CONTAINED_CHAR));
-    }
 }

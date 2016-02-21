@@ -2,8 +2,6 @@ package cn.codingstyle.hangman;
 
 import org.junit.Test;
 
-import java.util.stream.IntStream;
-
 import static cn.codingstyle.hangman.HangmanHelper.*;
 import static org.mockito.Mockito.*;
 
@@ -22,15 +20,11 @@ public class TestHangmanGameOver {
 
     @Test
     public void game_over_when_type_a_wrong_last_try() {
-        onlyLastTryLeft();
+        hangman.onlyLastTryLeft();
 
         hangman.type(NOT_CONTAINED_CHAR, gameOver);
 
         verify(gameOver).run();
-    }
-
-    private void onlyLastTryLeft() {
-        IntStream.range(0, MAX_TRIES - 1).forEach(i -> hangman.typeButNotCheckGameOver(NOT_CONTAINED_CHAR));
     }
 
 }
