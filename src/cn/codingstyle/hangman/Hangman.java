@@ -29,11 +29,16 @@ public class Hangman {
 
     public void type(char c) {
         appendCharToUsed(c);
-        decreaseTries();
+        decreaseTries(c);
     }
 
-    private void decreaseTries() {
-        tries--;
+    private void decreaseTries(char c) {
+        if (isCharNotContained(c))
+            tries--;
+    }
+
+    private boolean isCharNotContained(char c) {
+        return word.indexOf(c) == -1;
     }
 
     private void appendCharToUsed(char c) {

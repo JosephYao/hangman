@@ -8,6 +8,7 @@ public class TestHangmanTries {
 
     private static final int MAX_TRIES = 12;
     private static final char NOT_CONTAINED_CHAR = 'z';
+    private static final char CONTAINED_CONSONANT = 'w';
     Hangman hangman = new Hangman("word");
 
     @Test
@@ -20,5 +21,12 @@ public class TestHangmanTries {
         hangman.type(NOT_CONTAINED_CHAR);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
+    }
+
+    @Test
+    public void tries_remain_unchanged_when_type_a_contained_consonant() {
+        hangman.type(CONTAINED_CONSONANT);
+
+        assertEquals(MAX_TRIES, hangman.tries());
     }
 }
