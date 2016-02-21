@@ -33,7 +33,13 @@ public class Hangman {
     }
 
     public void type(char c, Runnable gameOver) {
+        decreaseTries(c);
+        runIfGameOver(gameOver);
+    }
 
+    private void runIfGameOver(Runnable gameOver) {
+        if (!canTryMore())
+            gameOver.run();
     }
 
     private void decreaseTries(char c) {
