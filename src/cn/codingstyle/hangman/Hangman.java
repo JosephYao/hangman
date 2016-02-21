@@ -27,13 +27,9 @@ public class Hangman {
         return "_o__";
     }
 
-    public void type(char c) {
-        decreaseTries(c);
-        appendCharToUsed(c);
-    }
-
     public void type(char c, Runnable gameOver) {
         decreaseTries(c);
+        appendCharToUsed(c);
         runIfGameOver(gameOver);
     }
 

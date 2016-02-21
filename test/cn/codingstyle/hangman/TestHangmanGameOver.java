@@ -10,7 +10,7 @@ import static org.mockito.Mockito.*;
 public class TestHangmanGameOver {
 
     private static final char ANY_CHAR = 'x';
-    Hangman hangman =  new Hangman("word");
+    HangmanHelper hangman =  new HangmanHelper("word");
     Runnable gameOver = mock(Runnable.class);
 
     @Test
@@ -30,7 +30,7 @@ public class TestHangmanGameOver {
     }
 
     private void onlyLastTryLeft() {
-        IntStream.range(0, MAX_TRIES - 1).forEach(i -> hangman.type(NOT_CONTAINED_CHAR));
+        IntStream.range(0, MAX_TRIES - 1).forEach(i -> hangman.typeButNotCheckGameOver(NOT_CONTAINED_CHAR));
     }
 
 }

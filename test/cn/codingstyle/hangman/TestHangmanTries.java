@@ -10,7 +10,7 @@ import static cn.codingstyle.hangman.HangmanHelper.*;
 public class TestHangmanTries {
 
     private static final char CONTAINED_CONSONANT = 'w';
-    Hangman hangman = new Hangman("word");
+    HangmanHelper hangman = new HangmanHelper("word");
 
     @Test
     public void tries_when_game_start() {
@@ -19,23 +19,23 @@ public class TestHangmanTries {
 
     @Test
     public void tries_decrease_one_when_type_a_not_contained_char() {
-        hangman.type(NOT_CONTAINED_CHAR);
+        hangman.typeButNotCheckGameOver(NOT_CONTAINED_CHAR);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
     }
 
     @Test
     public void tries_remain_unchanged_when_type_a_contained_consonant() {
-        hangman.type(CONTAINED_CONSONANT);
+        hangman.typeButNotCheckGameOver(CONTAINED_CONSONANT);
 
         assertEquals(MAX_TRIES, hangman.tries());
     }
 
     @Test
     public void tries_decrease_one_when_type_a_contained_consonant_again() {
-        hangman.type(CONTAINED_CONSONANT);
+        hangman.typeButNotCheckGameOver(CONTAINED_CONSONANT);
 
-        hangman.type(CONTAINED_CONSONANT);
+        hangman.typeButNotCheckGameOver(CONTAINED_CONSONANT);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
     }
@@ -44,12 +44,12 @@ public class TestHangmanTries {
     public void tries_return_0_even_exceed_max_tries() {
         allTriesUsed();
 
-        hangman.type(NOT_CONTAINED_CHAR);
+        hangman.typeButNotCheckGameOver(NOT_CONTAINED_CHAR);
 
         assertEquals(0, hangman.tries());
     }
 
     private void allTriesUsed() {
-        IntStream.range(0, MAX_TRIES).forEach(i -> hangman.type(NOT_CONTAINED_CHAR));
+        IntStream.range(0, MAX_TRIES).forEach(i -> hangman.typeButNotCheckGameOver(NOT_CONTAINED_CHAR));
     }
 }
