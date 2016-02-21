@@ -32,6 +32,10 @@ public class Hangman {
         appendCharToUsed(c);
     }
 
+    public void type(char c, Runnable gameOver) {
+
+    }
+
     private void decreaseTries(char c) {
         if ((isCharNotContained(c) || isCharUsed(c)) && canTryMore())
             tries--;
@@ -53,4 +57,5 @@ public class Hangman {
     private boolean isCharUsed(char c) {
         return used.indexOf(c) > -1;
     }
+
 }
