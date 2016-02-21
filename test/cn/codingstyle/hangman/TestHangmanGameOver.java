@@ -13,7 +13,7 @@ public class TestHangmanGameOver {
 
     @Test
     public void game_not_over_when_game_start() {
-        hangman.type(ANY_CHAR, gameOver, () -> {});
+        hangman.type(ANY_CHAR, gameOver, WHATEVER);
 
         verify(gameOver, never()).run();
     }
@@ -22,7 +22,7 @@ public class TestHangmanGameOver {
     public void game_over_when_type_a_wrong_last_try() {
         hangman.onlyLastTryLeft();
 
-        hangman.type(NOT_CONTAINED_CHAR, gameOver, () -> {});
+        hangman.type(NOT_CONTAINED_CHAR, gameOver, WHATEVER);
 
         verify(gameOver).run();
     }

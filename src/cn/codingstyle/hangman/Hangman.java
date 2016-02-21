@@ -48,6 +48,16 @@ public class Hangman {
         decreaseTries(c);
         appendCharToUsed(c);
         runIfGameOver(gameOver);
+        runIfGameWin(gameWin);
+    }
+
+    private void runIfGameWin(Runnable gameWin) {
+        if(allCharsDiscovered())
+            gameWin.run();
+    }
+
+    private boolean allCharsDiscovered() {
+        return word.equals(discovered());
     }
 
     private void runIfGameOver(Runnable gameOver) {

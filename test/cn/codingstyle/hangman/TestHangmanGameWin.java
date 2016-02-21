@@ -9,13 +9,23 @@ import static org.mockito.Mockito.verify;
 
 public class TestHangmanGameWin {
 
+    Runnable gameWin = mock(Runnable.class);
+
     @Test
     public void game_not_win_when_game_start() {
         Hangman hangman = new Hangman("word");
 
-        Runnable gameWin = mock(Runnable.class);
-        hangman.type(ANY_CHAR, ()->{}, gameWin);
+        hangman.type(ANY_CHAR, WHATEVER, gameWin);
 
         verify(gameWin, never()).run();
+    }
+
+    @Test
+    public void game_win_when_discovering_last_char() {
+        Hangman hangman = new Hangman("eye");
+
+        hangman.type('y', WHATEVER, gameWin);
+
+        verify(gameWin).run();
     }
 }
