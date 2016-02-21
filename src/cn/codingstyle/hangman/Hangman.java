@@ -14,4 +14,8 @@ public class Hangman {
     public int tries() {
         return 12;
     }
+
+    public String used() {
+        return "aeiou";
+    }
 }
