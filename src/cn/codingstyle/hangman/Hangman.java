@@ -22,4 +22,8 @@ public class Hangman {
     public String discovered() {
         return "_o__";
     }
+
+    public void type(char c) {
+
+    }
 }
