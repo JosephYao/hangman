@@ -44,7 +44,7 @@ public class Hangman {
             return "_";
     }
 
-    public void type(char c, Runnable gameOver) {
+    public void type(char c, Runnable gameOver, Runnable gameWin) {
         decreaseTries(c);
         appendCharToUsed(c);
         runIfGameOver(gameOver);
