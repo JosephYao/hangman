@@ -24,7 +24,10 @@ public class Hangman {
     }
 
     public String discovered() {
-        return word;
+        if (used.contains(word))
+            return word;
+        else
+            return "_";
     }
 
     public void type(char c, Runnable gameOver) {
