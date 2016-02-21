@@ -5,11 +5,10 @@ import org.junit.Test;
 import java.util.stream.IntStream;
 
 import static org.junit.Assert.assertEquals;
+import static cn.codingstyle.hangman.HangmanHelper.*;
 
 public class TestHangmanTries {
 
-    private static final int MAX_TRIES = 12;
-    private static final char NOT_CONTAINED_CHAR = 'z';
     private static final char CONTAINED_CONSONANT = 'w';
     Hangman hangman = new Hangman("word");
 

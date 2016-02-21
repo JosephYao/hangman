@@ -4,12 +4,11 @@ import org.junit.Test;
 
 import java.util.stream.IntStream;
 
+import static cn.codingstyle.hangman.HangmanHelper.*;
 import static org.mockito.Mockito.*;
 
 public class TestHangmanGameOver {
 
-    private static final char NOT_CONTAINED_CHAR = 'z';
-    private static final int MAX_TRIES = 12;
     private static final char ANY_CHAR = 'x';
     Hangman hangman =  new Hangman("word");
     Runnable gameOver = mock(Runnable.class);
