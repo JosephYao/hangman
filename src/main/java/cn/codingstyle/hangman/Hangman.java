@@ -14,4 +14,8 @@ public class Hangman {
     public String used() {
         return "aeiou";
     }
+
+    public void type(char c) {
+
+    }
 }
