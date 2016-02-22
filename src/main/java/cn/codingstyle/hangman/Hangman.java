@@ -2,7 +2,9 @@ package cn.codingstyle.hangman;
 
 public class Hangman {
     private static final String ALL_VOWEL = "aeiou";
+    private static final int MAX_TRIES = 12;
     private final String word;
+    private int tries = MAX_TRIES;
     private String used = ALL_VOWEL;
 
     public Hangman(String word) {
@@ -18,6 +20,15 @@ public class Hangman {
     }
 
     public void type(char c) {
+        appendCharToUsed(c);
+        decreaseTries();
+    }
+
+    private void decreaseTries() {
+        tries--;
+    }
+
+    private void appendCharToUsed(char c) {
         if (isCharNotUsed(c))
             used += c;
     }
@@ -27,6 +38,6 @@ public class Hangman {
     }
 
     public int tries() {
-        return 12;
+        return tries;
     }
 }
