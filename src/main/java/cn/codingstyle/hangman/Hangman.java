@@ -21,11 +21,12 @@ public class Hangman {
 
     public void type(char c) {
         appendCharToUsed(c);
-        decreaseTries();
+        decreaseTries(c);
     }
 
-    private void decreaseTries() {
-        tries--;
+    private void decreaseTries(char c) {
+        if (ALL_VOWEL.indexOf(c) > -1)
+            tries--;
     }
 
     private void appendCharToUsed(char c) {
