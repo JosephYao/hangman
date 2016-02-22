@@ -25,7 +25,7 @@ public class Hangman {
     }
 
     private void decreaseTries(char c) {
-        if (isCharNotContained(c))
+        if (isCharNotContained(c) || ALL_VOWEL.indexOf(c) > -1)
             tries--;
     }
 
