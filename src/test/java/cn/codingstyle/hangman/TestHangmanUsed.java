@@ -12,19 +12,28 @@ public class TestHangmanUsed {
     Hangman hangman = new Hangman("word");
 
     @Test
-    public void used_when_game_start() {
+    public void used_is_all_vowel_when_game_start() {
         assertEquals(ALL_VOWEL, hangman.used());
     }
 
     @Test
-    public void used_when_type_a_vowel() {
+    public void used_remain_unchanged_when_type_a_vowel() {
         hangman.type(VOWEL);
 
         assertEquals(ALL_VOWEL, hangman.used());
     }
 
     @Test
-    public void used_when_type_a_consonant() {
+    public void a_consonant_appended_to_used_when_type_it() {
+        hangman.type(CONSONANT);
+
+        assertEquals(ALL_VOWEL + CONSONANT, hangman.used());
+    }
+
+    @Test
+    public void used_remain_unchanged_when_type_a_consonant_again() {
+        hangman.type(CONSONANT);
+
         hangman.type(CONSONANT);
 
         assertEquals(ALL_VOWEL + CONSONANT, hangman.used());
