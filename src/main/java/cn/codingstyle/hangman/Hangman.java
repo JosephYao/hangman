@@ -25,8 +25,12 @@ public class Hangman {
     }
 
     private void decreaseTries(char c) {
-        if (isCharNotContained(c) || isCharUsed(c))
+        if ((isCharNotContained(c) || isCharUsed(c)) && canTryMore())
             tries--;
+    }
+
+    private boolean canTryMore() {
+        return tries > 0;
     }
 
     private boolean isCharNotContained(char c) {
