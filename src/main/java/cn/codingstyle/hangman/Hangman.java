@@ -25,8 +25,12 @@ public class Hangman {
     }
 
     private void decreaseTries(char c) {
-        if (ALL_VOWEL.indexOf(c) > -1)
+        if (isCharNotContained(c))
             tries--;
+    }
+
+    private boolean isCharNotContained(char c) {
+        return word.indexOf(c) == -1;
     }
 
     private void appendCharToUsed(char c) {
