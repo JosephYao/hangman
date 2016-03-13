@@ -19,7 +19,7 @@ public class Hangman {
         return used;
     }
 
-    public void type(char c) {
+    public void type(char c, Runnable gameLost) {
         decreaseTries(c);
         appendCharToUsed(c);
     }
