@@ -9,7 +9,7 @@ public class TestHangmanUsed {
     private static final String ALL_VOWEL = "aeiou";
     private static final char VOWEL = 'a';
     private static final char CONSONANT = 'b';
-    Hangman hangman = new Hangman("word");
+    HangmanForTest hangman = new HangmanForTest("word");
 
     @Test
     public void used_is_all_vowel_when_game_start() {
@@ -18,23 +18,23 @@ public class TestHangmanUsed {
 
     @Test
     public void used_remain_unchanged_when_type_a_vowel() {
-        hangman.type(VOWEL, null);
+        hangman.typeWithoutCheckGameLost(VOWEL);
 
         assertEquals(ALL_VOWEL, hangman.used());
     }
 
     @Test
     public void a_consonant_appended_to_used_when_type_it() {
-        hangman.type(CONSONANT, null);
+        hangman.typeWithoutCheckGameLost(CONSONANT);
 
         assertEquals(ALL_VOWEL + CONSONANT, hangman.used());
     }
 
     @Test
     public void used_remain_unchanged_when_type_a_consonant_again() {
-        hangman.type(CONSONANT, null);
+        hangman.typeWithoutCheckGameLost(CONSONANT);
 
-        hangman.type(CONSONANT, null);
+        hangman.typeWithoutCheckGameLost(CONSONANT);
 
         assertEquals(ALL_VOWEL + CONSONANT, hangman.used());
     }
