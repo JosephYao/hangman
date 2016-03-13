@@ -2,8 +2,6 @@ package cn.codingstyle.hangman;
 
 import org.junit.Test;
 
-import java.util.stream.IntStream;
-
 import static org.junit.Assert.assertEquals;
 
 public class TestHangmanTries {
@@ -55,18 +53,5 @@ public class TestHangmanTries {
         hangman.type(CONTAINED_CONSONANT);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
-    }
-
-    @Test
-    public void tries_is_0_even_exceed_max_tries() {
-        allTriesUsed();
-
-        hangman.type(NOT_CONTAINED_CONSONANT);
-
-        assertEquals(0, hangman.tries());
-    }
-
-    private void allTriesUsed() {
-        IntStream.range(0, MAX_TRIES).forEach(i -> hangman.type(NOT_CONTAINED_CONSONANT));
     }
 }
