@@ -1,5 +1,9 @@
 package cn.codingstyle.hangman;
 
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.joining;
+
 public class Hangman {
     private static final String ALL_VOWEL = "aeiou";
     private static final int MAX_TRIES = 12;
@@ -54,9 +58,23 @@ public class Hangman {
     }
 
     public String discovered() {
-        if (!ALL_VOWEL.contains(word))
-            return PLACEHOLDER;
+        return charsOfWord()
+                .map(this::discoveredChar)
+                .collect(joining());
+    }
 
-        return word;
+    private Stream<Character> charsOfWord() {
+        return word.chars().mapToObj(i -> (char)i);
+    }
+
+    private String discoveredChar(char c) {
+        if (!isVowel(c))
+            return PLACEHOLDER;
+        else
+            return String.valueOf(c);
+    }
+
+    private boolean isVowel(char c) {
+        return ALL_VOWEL.indexOf(c) != -1;
     }
 }
