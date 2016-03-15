@@ -22,6 +22,12 @@ public class Hangman {
     public void type(char c, Runnable gameLost) {
         decreaseTries(c);
         appendCharToUsed(c);
+        checkGameLost(gameLost);
+    }
+
+    private void checkGameLost(Runnable gameLost) {
+        if (tries == 0)
+            gameLost.run();
     }
 
     private void decreaseTries(char c) {
