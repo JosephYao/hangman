@@ -4,13 +4,13 @@ import org.junit.Test;
 
 import java.util.stream.IntStream;
 
+import static cn.codingstyle.hangman.HangmanForTest.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 public class TestHangmanGameLost {
 
-    private static final char NOT_CONTAINED_CONSONANT = 'z';
     HangmanForTest hangman = new HangmanForTest("word");
     Runnable gameLost = mock(Runnable.class);
 
