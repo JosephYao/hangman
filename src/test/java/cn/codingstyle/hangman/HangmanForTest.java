@@ -14,6 +14,7 @@ public class HangmanForTest extends Hangman {
     }
 
     public void typeWithoutCheckGameLost(char c) {
-        type(c, () -> {});
+        type(c, () -> {}, () -> {
+        });
     }
 }

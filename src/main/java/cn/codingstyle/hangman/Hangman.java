@@ -22,7 +22,7 @@ public class Hangman {
         return used;
     }
 
-    public void type(char c, Runnable gameLost) {
+    public void type(char c, Runnable gameLost, Runnable mockGameWin) {
         decreaseTries(c);
         appendCharToUsed(c);
         checkGameLost(gameLost);

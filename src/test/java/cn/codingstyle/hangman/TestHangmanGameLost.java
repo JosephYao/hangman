@@ -16,7 +16,8 @@ public class TestHangmanGameLost {
 
     @Test
     public void game_not_lost_when_type_a_not_contained_char_after_game_start() {
-        hangman.type(NOT_CONTAINED_CONSONANT, gameLost);
+        hangman.type(NOT_CONTAINED_CONSONANT, gameLost, () -> {
+        });
 
         verify(gameLost, never()).run();
     }
@@ -25,7 +26,8 @@ public class TestHangmanGameLost {
     public void game_lost_when_last_try_failed() {
         givenOnlyLastTryLeft();
 
-        hangman.type(NOT_CONTAINED_CONSONANT, gameLost);
+        hangman.type(NOT_CONTAINED_CONSONANT, gameLost, () -> {
+        });
 
         verify(gameLost).run();
     }
