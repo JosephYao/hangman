@@ -1,7 +1,5 @@
 package cn.codingstyle.hangman;
 
-import java.util.stream.Stream;
-
 import static java.util.stream.Collectors.joining;
 
 public class Hangman {
@@ -58,23 +56,15 @@ public class Hangman {
     }
 
     public String discovered() {
-        return charsOfWord()
-                .map(this::discoveredChar)
+        return word.chars()
+                .mapToObj(i -> discoveredChar((char)i))
                 .collect(joining());
     }
 
-    private Stream<Character> charsOfWord() {
-        return word.chars().mapToObj(i -> (char)i);
-    }
-
     private String discoveredChar(char c) {
-        if (!isVowel(c))
-            return PLACEHOLDER;
-        else
+        if (ALL_VOWEL.indexOf(c) != -1)
             return String.valueOf(c);
-    }
-
-    private boolean isVowel(char c) {
-        return ALL_VOWEL.indexOf(c) != -1;
+        else
+            return PLACEHOLDER;
     }
 }
