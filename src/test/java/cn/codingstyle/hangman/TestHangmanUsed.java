@@ -16,23 +16,23 @@ public class TestHangmanUsed {
 
     @Test
     public void used_remain_unchanged_when_type_a_vowel() {
-        hangman.typeWithoutCheckGameLost(VOWEL);
+        hangman.typeWithoutCheck(VOWEL);
 
         assertEquals(ALL_VOWEL, hangman.used());
     }
 
     @Test
     public void a_consonant_appended_to_used_when_type_it() {
-        hangman.typeWithoutCheckGameLost(CONSONANT);
+        hangman.typeWithoutCheck(CONSONANT);
 
         assertEquals(ALL_VOWEL + CONSONANT, hangman.used());
     }
 
     @Test
     public void used_remain_unchanged_when_type_a_consonant_again() {
-        hangman.typeWithoutCheckGameLost(CONSONANT);
+        hangman.typeWithoutCheck(CONSONANT);
 
-        hangman.typeWithoutCheckGameLost(CONSONANT);
+        hangman.typeWithoutCheck(CONSONANT);
 
         assertEquals(ALL_VOWEL + CONSONANT, hangman.used());
     }

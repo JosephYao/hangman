@@ -10,7 +10,7 @@ public class TestHangmanDiscoveredDuringGame {
     public void discovered_when_type_a_contained_consonant() {
         HangmanForTest hangman = new HangmanForTest("and");
 
-        hangman.typeWithoutCheckGameLost('n');
+        hangman.typeWithoutCheck('n');
 
         assertEquals("an_", hangman.discovered());
     }

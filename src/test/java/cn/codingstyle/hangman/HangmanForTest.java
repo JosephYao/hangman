@@ -8,13 +8,21 @@ public class HangmanForTest extends Hangman {
     public static final String ALL_VOWEL = "aeiou";
     public static final char VOWEL = 'a';
     public static final char CONSONANT = 'b';
+    private static final Runnable WHATEVER = () -> {};
 
     public HangmanForTest(String word) {
         super(word);
     }
 
-    public void typeWithoutCheckGameLost(char c) {
-        type(c, () -> {}, () -> {
-        });
+    public void typeWithoutCheck(char c) {
+        type(c, WHATEVER, WHATEVER);
+    }
+
+    public void typeAndCheckGameWin(char c, Runnable gameWin) {
+        type(c, WHATEVER, gameWin);
+    }
+
+    public void typeAndCheckGameLost(char c, Runnable gameLost) {
+        type(c, gameLost, WHATEVER);
     }
 }
