@@ -18,7 +18,11 @@ public class Hangman {
     }
 
     public void type(char c) {
-        if (ALL_VOWELS.indexOf(c) == -1)
+        if (isCharUsed(c))
             used += c;
+    }
+
+    private boolean isCharUsed(char c) {
+        return used.indexOf(c) == -1;
     }
 }
