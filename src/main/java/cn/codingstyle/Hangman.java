@@ -25,12 +25,12 @@ public class Hangman {
     }
 
     private void appendCharToUsed(char c) {
-        if (isCharUsed(c))
+        if (!isCharUsed(c))
             used += c;
     }
 
     private void decreaseTries(char c) {
-        if (isVowel(c) || isCharContained(c))
+        if (isVowel(c) || !isCharContained(c))
             tries--;
     }
 
@@ -39,11 +39,11 @@ public class Hangman {
     }
 
     private boolean isCharContained(char c) {
-        return word.indexOf(c) == -1;
+        return word.indexOf(c) != -1;
     }
 
     private boolean isCharUsed(char c) {
-        return used.indexOf(c) == -1;
+        return used.indexOf(c) != -1;
     }
 
     public int tries() {
