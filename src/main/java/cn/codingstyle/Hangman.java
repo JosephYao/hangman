@@ -10,4 +10,8 @@ public class Hangman {
     public int length() {
         return word.length();
     }
+
+    public String used() {
+        return "aeiou";
+    }
 }
