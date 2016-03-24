@@ -2,14 +2,12 @@ package cn.codingstyle;
 
 import org.junit.Test;
 
+import static cn.codingstyle.HangmanForTest.*;
 import static org.junit.Assert.assertEquals;
 
 public class TestHangmanTries {
 
     private static final int MAX_TRIES = 12;
-    private static final char VOWEL = 'a';
-    private static final char NOT_CONTAINED_CONSONANT = 'b';
-    private static final char CONTAINED_CONSONANT = 'w';
     Hangman hangman = new Hangman("word");
 
     @Test
