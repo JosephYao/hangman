@@ -1,6 +1,7 @@
 package cn.codingstyle;
 
 public class Hangman {
+    private static final String ALL_VOWELS = "aeiou";
     private final String word;
 
     public Hangman(String word) {
@@ -12,6 +13,10 @@ public class Hangman {
     }
 
     public String used() {
-        return "aeiou";
+        return ALL_VOWELS;
+    }
+
+    public void type(char c) {
+
     }
 }
