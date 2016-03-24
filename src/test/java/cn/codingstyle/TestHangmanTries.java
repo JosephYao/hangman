@@ -6,10 +6,19 @@ import static org.junit.Assert.assertEquals;
 
 public class TestHangmanTries {
 
+    private static final int MAX_TRIES = 12;
+    private static final char VOWEL = 'a';
+    Hangman hangman = new Hangman("word");
+
     @Test
     public void tries_when_game_start() {
-        Hangman hangman = new Hangman("word");
+        assertEquals(MAX_TRIES, hangman.tries());
+    }
 
-        assertEquals(12, hangman.tries());
+    @Test
+    public void tries_when_type_a_vowel() {
+        hangman.type(VOWEL);
+
+        assertEquals(MAX_TRIES - 1, hangman.tries());
     }
 }
