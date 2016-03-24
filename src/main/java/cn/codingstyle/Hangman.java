@@ -30,8 +30,16 @@ public class Hangman {
     }
 
     private void decreaseTries(char c) {
-        if (ALL_VOWELS.indexOf(c) != -1)
+        if (isVowel(c) || isCharContained(c))
             tries--;
+    }
+
+    private boolean isVowel(char c) {
+        return ALL_VOWELS.indexOf(c) != -1;
+    }
+
+    private boolean isCharContained(char c) {
+        return word.indexOf(c) == -1;
     }
 
     private boolean isCharUsed(char c) {
