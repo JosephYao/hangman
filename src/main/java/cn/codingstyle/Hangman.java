@@ -25,4 +25,8 @@ public class Hangman {
     private boolean isCharUsed(char c) {
         return used.indexOf(c) == -1;
     }
+
+    public int tries() {
+        return 12;
+    }
 }
