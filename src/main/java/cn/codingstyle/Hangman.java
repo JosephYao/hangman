@@ -22,6 +22,7 @@ public class Hangman {
     public void type(char c, Runnable gameOver) {
         decreaseTries(c);
         appendCharToUsed(c);
+        checkGameOver(gameOver);
     }
 
     private void decreaseTries(char c) {
@@ -34,12 +35,21 @@ public class Hangman {
             used += c;
     }
 
+    private void checkGameOver(Runnable gameOver) {
+        if (hasNoMoreTry())
+            gameOver.run();
+    }
+
     private boolean isCharUsed(char c) {
         return used.indexOf(c) != -1;
     }
 
     private boolean isCharContained(char c) {
         return word.indexOf(c) != -1;
+    }
+
+    private boolean hasNoMoreTry() {
+        return tries == 0;
     }
 
     public int tries() {
