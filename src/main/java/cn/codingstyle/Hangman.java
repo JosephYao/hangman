@@ -3,6 +3,7 @@ package cn.codingstyle;
 public class Hangman {
     private static final String ALL_VOWELS = "aeiou";
     private static final int MAX_TRIES = 12;
+    private static final String PLACEHOLDER = "_";
     private final String word;
     private String used = ALL_VOWELS;
     private int tries = MAX_TRIES;
@@ -54,5 +55,9 @@ public class Hangman {
 
     public int tries() {
         return tries;
+    }
+
+    public String discovered() {
+        return PLACEHOLDER;
     }
 }
