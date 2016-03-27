@@ -66,9 +66,9 @@ public class Hangman {
     }
 
     private String discoveredChar(char c) {
-        if (ALL_VOWELS.indexOf(c) != -1)
+        if (isCharUsed(c))
             return String.valueOf(c);
-
-        return PLACEHOLDER;
+        else
+            return PLACEHOLDER;
     }
 }
