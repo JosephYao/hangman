@@ -16,7 +16,7 @@ public class TestHangmanGameOver {
 
     @Test
     public void game_not_over_when_game_start() {
-        hangman.type(ANY_LETTER, mockGameOver);
+        hangman.typeAndCheckGameOver(ANY_LETTER, mockGameOver);
 
         verify(mockGameOver, never()).run();
     }
@@ -25,7 +25,7 @@ public class TestHangmanGameOver {
     public void game_is_over_when_type_wrong_char_at_last_try() {
         allTriesUsedExceptLast();
 
-        hangman.type(ANY_LETTER, mockGameOver);
+        hangman.typeAndCheckGameOver(ANY_LETTER, mockGameOver);
 
         verify(mockGameOver).run();
     }
