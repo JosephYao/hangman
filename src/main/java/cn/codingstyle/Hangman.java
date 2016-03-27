@@ -61,7 +61,14 @@ public class Hangman {
 
     public String discovered() {
         return word.chars()
-                .mapToObj(i -> PLACEHOLDER)
+                .mapToObj(i -> discoveredChar((char)i))
                 .collect(joining());
+    }
+
+    private String discoveredChar(char c) {
+        if (ALL_VOWELS.indexOf(c) != -1)
+            return String.valueOf(c);
+
+        return PLACEHOLDER;
     }
 }
