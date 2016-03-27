@@ -9,12 +9,13 @@ public class HangmanForTest extends Hangman {
     public static final char ANY_LETTER = 'x';
     private static final Runnable WHATEVER = () -> {
     };
+    public static final char LAST_CORRECT_CONSONANT = 'm';
 
     public HangmanForTest(String word) {
         super(word);
     }
 
-    public void typeWithoutCheckGameOver(char c) {
+    public void typeWithoutCheckGameOverAndWin(char c) {
         type(c, WHATEVER, WHATEVER);
     }
 

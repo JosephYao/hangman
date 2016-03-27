@@ -32,6 +32,6 @@ public class TestHangmanGameOver {
 
     private void allTriesUsedExceptLast() {
         IntStream.range(0, MAX_TRIES - 1).
-                forEach(i -> hangman.typeWithoutCheckGameOver(ANY_LETTER));
+                forEach(i -> hangman.typeWithoutCheckGameOverAndWin(ANY_LETTER));
     }
 }

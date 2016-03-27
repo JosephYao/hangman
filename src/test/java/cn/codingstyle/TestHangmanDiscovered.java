@@ -2,6 +2,7 @@ package cn.codingstyle;
 
 import org.junit.Test;
 
+import static cn.codingstyle.HangmanForTest.*;
 import static org.junit.Assert.assertEquals;
 
 public class TestHangmanDiscovered {
@@ -36,7 +37,7 @@ public class TestHangmanDiscovered {
     public void discovered_when_type_a_contained_consonant_char() {
         HangmanForTest hangman = new HangmanForTest("word");
 
-        hangman.typeWithoutCheckGameOver('w');
+        hangman.typeWithoutCheckGameOverAndWin(CONTAINED_CONSONANT);
 
         assertEquals("wo__", hangman.discovered());
     }

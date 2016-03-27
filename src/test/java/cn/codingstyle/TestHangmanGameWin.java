@@ -9,7 +9,6 @@ import static org.mockito.Mockito.verify;
 
 public class TestHangmanGameWin {
 
-    private static final char LAST_CORRECT_CONSONANT = 'm';
     HangmanForTest hangman = new HangmanForTest("am");
     Runnable mockGameWin = mock(Runnable.class);
 
