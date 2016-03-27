@@ -1,5 +1,7 @@
 package cn.codingstyle;
 
+import static java.util.stream.Collectors.joining;
+
 public class Hangman {
     private static final String ALL_VOWELS = "aeiou";
     private static final int MAX_TRIES = 12;
@@ -58,6 +60,8 @@ public class Hangman {
     }
 
     public String discovered() {
-        return PLACEHOLDER;
+        return word.chars()
+                .mapToObj(i -> PLACEHOLDER)
+                .collect(joining());
     }
 }
