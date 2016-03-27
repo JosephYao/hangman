@@ -9,13 +9,21 @@ import static org.mockito.Mockito.verify;
 
 public class TestHangmanGameWin {
 
+    private static final char LAST_CORRECT_CONSONANT = 'm';
+    HangmanForTest hangman = new HangmanForTest("am");
+    Runnable mockGameWin = mock(Runnable.class);
+
     @Test
     public void game_not_win_when_game_start() {
-        HangmanForTest hangman = new HangmanForTest("word");
-        Runnable mockGameWin = mock(Runnable.class);
-
         hangman.typeAndCheckGameWin(ANY_LETTER, mockGameWin);
 
         verify(mockGameWin, never()).run();
+    }
+
+    @Test
+    public void game_win_when_discover_last_consonant() {
+        hangman.typeAndCheckGameWin(LAST_CORRECT_CONSONANT, mockGameWin);
+
+        verify(mockGameWin).run();
     }
 }

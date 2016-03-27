@@ -26,6 +26,7 @@ public class Hangman {
         decreaseTries(c);
         appendCharToUsed(c);
         checkGameOver(gameOver);
+        checkGameWin(gameWin);
     }
 
     private void decreaseTries(char c) {
@@ -43,6 +44,11 @@ public class Hangman {
             gameOver.run();
     }
 
+    private void checkGameWin(Runnable gameWin) {
+        if (hasDiscoveredAllChars())
+            gameWin.run();
+    }
+
     private boolean isCharUsed(char c) {
         return used.indexOf(c) != -1;
     }
@@ -55,8 +61,8 @@ public class Hangman {
         return tries == 0;
     }
 
-    public int tries() {
-        return tries;
+    private boolean hasDiscoveredAllChars() {
+        return word.equals(discovered());
     }
 
     public String discovered() {
@@ -70,5 +76,9 @@ public class Hangman {
             return String.valueOf(c);
         else
             return PLACEHOLDER;
+    }
+
+    public int tries() {
+        return tries;
     }
 }
