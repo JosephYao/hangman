@@ -5,6 +5,7 @@ public class Hangman {
     private static final int MAX_TRIES = 12;
     private final String word;
     private String used = ALL_VOWEL;
+    private int tries = MAX_TRIES;
 
     public Hangman(String word) {
         this.word = word;
@@ -19,8 +20,17 @@ public class Hangman {
     }
 
     public void type(char c) {
+        appendCharToUsed(c);
+        decreaseTries();
+    }
+
+    private void appendCharToUsed(char c) {
         if (!isCharUsed(c))
             used += c;
+    }
+
+    private void decreaseTries() {
+        tries--;
     }
 
     private boolean isCharUsed(char c) {
@@ -28,6 +38,6 @@ public class Hangman {
     }
 
     public int tries() {
-        return MAX_TRIES;
+        return tries;
     }
 }
