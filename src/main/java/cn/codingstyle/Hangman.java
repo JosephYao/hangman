@@ -19,9 +19,15 @@ public class Hangman {
         return used;
     }
 
-    public void type(char c) {
+    public void type(char c, Runnable gameOver) {
         decreaseTries(c);
         appendCharToUsed(c);
+        checkGameOver(gameOver);
+    }
+
+    private void checkGameOver(Runnable gameOver) {
+        if (tries == 0)
+            gameOver.run();
     }
 
     private void appendCharToUsed(char c) {
