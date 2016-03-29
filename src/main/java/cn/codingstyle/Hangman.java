@@ -2,6 +2,7 @@ package cn.codingstyle;
 
 public class Hangman {
     private static final String ALL_VOWEL = "aeiou";
+    private static final int MAX_TRIES = 12;
     private final String word;
     private String used = ALL_VOWEL;
 
@@ -24,5 +25,9 @@ public class Hangman {
 
     private boolean isCharUsed(char c) {
         return used.indexOf(c) != -1;
+    }
+
+    public int tries() {
+        return MAX_TRIES;
     }
 }
