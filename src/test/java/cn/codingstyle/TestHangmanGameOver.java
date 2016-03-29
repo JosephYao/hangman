@@ -4,12 +4,12 @@ import org.junit.Test;
 
 import java.util.stream.IntStream;
 
+import static cn.codingstyle.HangmanForTest.*;
+import static cn.codingstyle.HangmanForTest.MAX_TRIES;
 import static org.mockito.Mockito.*;
 
 public class TestHangmanGameOver {
 
-    private static final char ANY_CHAR = 'x';
-    private static final int MAX_TRIES = 12;
     Hangman hangman = new Hangman("word");
     Runnable mockGameOver = mock(Runnable.class);
 
