@@ -2,13 +2,11 @@ package cn.codingstyle;
 
 import org.junit.Test;
 
+import static cn.codingstyle.HangmanForTest.*;
 import static org.junit.Assert.assertEquals;
 
 public class TestHangmanUsed {
 
-    private static final String ALL_VOWELS = "aeiou";
-    private static final char VOWEL = 'a';
-    private static final char CONSONANT = 'b';
     Hangman hangman = new Hangman("word");
 
     @Test
