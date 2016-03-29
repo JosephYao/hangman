@@ -29,4 +29,13 @@ public class TestHangmanUsed {
 
         assertEquals(ALL_VOWELS + CONSONANT, hangman.used());
     }
+
+    @Test
+    public void used_when_type_a_consonant_again() {
+        hangman.type(CONSONANT);
+
+        hangman.type(CONSONANT);
+
+        assertEquals(ALL_VOWELS + CONSONANT, hangman.used());
+    }
 }

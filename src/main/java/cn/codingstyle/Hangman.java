@@ -18,11 +18,11 @@ public class Hangman {
     }
 
     public void type(char c) {
-        if (isConsonant(c))
+        if (!isCharUsed(c))
             used += c;
     }
 
-    private boolean isConsonant(char c) {
-        return ALL_VOWEL.indexOf(c) == -1;
+    private boolean isCharUsed(char c) {
+        return used.indexOf(c) != -1;
     }
 }
