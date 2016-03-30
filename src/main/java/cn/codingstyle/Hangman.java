@@ -51,4 +51,8 @@ public class Hangman {
     public int tries() {
         return tries;
     }
+
+    public String discovered() {
+        return "_";
+    }
 }
