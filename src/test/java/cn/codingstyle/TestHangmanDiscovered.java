@@ -11,6 +11,7 @@ public class TestHangmanDiscovered {
     private static final String TWO_CONSONANTS_WORD = "bt";
     private static final String ONE_VOWEL_WORD = "a";
     private static final String ANOTHER_ONE_VOWEL_WORD = "o";
+    private static final char CONTAINED_CONSONANT = 'w';
 
     @Test
     public void one_consonant_word_when_game_start() {
@@ -38,5 +39,14 @@ public class TestHangmanDiscovered {
         Hangman hangman = new Hangman(ANOTHER_ONE_VOWEL_WORD);
 
         assertEquals(ANOTHER_ONE_VOWEL_WORD, hangman.discovered());
+    }
+
+    @Test
+    public void discovered_when_type_a_contained_consonant() {
+        HangmanForTest hangman = new HangmanForTest("word");
+
+        hangman.typeWithoutCheckGameOver(CONTAINED_CONSONANT);
+
+        assertEquals(CONTAINED_CONSONANT + "o__", hangman.discovered());
     }
 }

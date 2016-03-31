@@ -28,9 +28,9 @@ public class Hangman {
         checkGameOver(gameOver);
     }
 
-    private void checkGameOver(Runnable gameOver) {
-        if (tries == 0)
-            gameOver.run();
+    private void decreaseTries(char c) {
+        if (isCharUsed(c) || isCharContained(c))
+            tries--;
     }
 
     private void appendCharToUsed(char c) {
@@ -38,17 +38,17 @@ public class Hangman {
             used += c;
     }
 
-    private void decreaseTries(char c) {
-        if (isCharUsed(c) || isCharContained(c))
-            tries--;
-    }
-
-    private boolean isCharContained(char c) {
-        return word.indexOf(c) == -1;
+    private void checkGameOver(Runnable gameOver) {
+        if (tries == 0)
+            gameOver.run();
     }
 
     private boolean isCharUsed(char c) {
         return used.indexOf(c) != -1;
+    }
+
+    private boolean isCharContained(char c) {
+        return word.indexOf(c) == -1;
     }
 
     public int tries() {
@@ -62,7 +62,7 @@ public class Hangman {
     }
 
     private String discoveredChar(char c) {
-        if (ALL_VOWEL.indexOf(c) != -1)
+        if (isCharUsed(c))
             return String.valueOf(c);
         else
             return PLACEHOLDER;
