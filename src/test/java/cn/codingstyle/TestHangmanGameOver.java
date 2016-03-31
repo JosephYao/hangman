@@ -16,7 +16,8 @@ public class TestHangmanGameOver {
     @Test
     public void game_not_over_when_game_start() {
         hangman.type(ANY_CHAR)
-        .checkGameOver(mockGameOver);
+        .checkGameOver(mockGameOver)
+        .checkGameWin(WHATEVER);
 
         verify(mockGameOver, never()).run();
     }

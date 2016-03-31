@@ -9,18 +9,22 @@ public class Judge {
         this.word = word;
     }
 
-    public void checkGameOver(Runnable gameOver) {
+    public Judge checkGameOver(Runnable gameOver) {
         if (hasNoMoreTry())
             gameOver.run();
+
+        return this;
     }
 
     private boolean hasNoMoreTry() {
         return hangman.tries() == 0;
     }
 
-    public void checkGameWin(Runnable gameWin) {
+    public Judge checkGameWin(Runnable gameWin) {
         if (allCharsDiscovered(hangman))
             gameWin.run();
+
+        return this;
     }
 
     private boolean allCharsDiscovered(Hangman hangman) {

@@ -9,4 +9,6 @@ public class HangmanForTest {
     public static final int MAX_TRIES = 12;
     public static final char ANY_CHAR = 'x';
 
+    public static final Runnable WHATEVER = () -> {
+    };
 }

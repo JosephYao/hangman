@@ -2,10 +2,9 @@ package cn.codingstyle;
 
 import org.junit.Test;
 
-import static cn.codingstyle.HangmanForTest.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
+import static cn.codingstyle.HangmanForTest.ANY_CHAR;
+import static cn.codingstyle.HangmanForTest.WHATEVER;
+import static org.mockito.Mockito.*;
 
 public class TestHangmanGameWin {
 
@@ -16,7 +15,8 @@ public class TestHangmanGameWin {
     @Test
     public void game_not_win_when_game_start() {
         hangman.type(ANY_CHAR)
-        .checkGameWin(mockGameWin);
+        .checkGameWin(mockGameWin)
+        .checkGameOver(WHATEVER);
 
         verify(mockGameWin, never()).run();
     }
