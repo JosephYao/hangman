@@ -7,11 +7,13 @@ public class Hangman {
     private static final int MAX_TRIES = 12;
     private static final String PLACEHOLDER = "_";
     private final String word;
+    private final Judge judge;
     private String used = ALL_VOWEL;
     private int tries = MAX_TRIES;
 
     public Hangman(String word) {
         this.word = word;
+        judge = new Judge(this, word);
     }
 
     public int length() {
@@ -25,8 +27,8 @@ public class Hangman {
     public void type(char c, Runnable gameOver, Runnable gameWin) {
         decreaseTries(c);
         appendCharToUsed(c);
-        checkGameOver(gameOver);
-        checkGameWin(gameWin);
+        judge.checkGameOver(gameOver);
+        judge.checkGameWin(gameWin);
     }
 
     private void decreaseTries(char c) {
@@ -39,30 +41,12 @@ public class Hangman {
             used += c;
     }
 
-    private void checkGameOver(Runnable gameOver) {
-        if (hasNoMoreTry())
-            gameOver.run();
-    }
-
-    private void checkGameWin(Runnable gameWin) {
-        if (allCharsDiscovered())
-            gameWin.run();
-    }
-
     private boolean isCharUsed(char c) {
         return used.indexOf(c) != -1;
     }
 
     private boolean isCharContained(char c) {
         return word.indexOf(c) == -1;
-    }
-
-    private boolean hasNoMoreTry() {
-        return tries == 0;
-    }
-
-    private boolean allCharsDiscovered() {
-        return word.equals(discovered());
     }
 
     public String discovered() {
