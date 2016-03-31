@@ -2,6 +2,7 @@ package cn.codingstyle;
 
 import org.junit.Test;
 
+import static cn.codingstyle.HangmanForTest.CONTAINED_CONSONANT;
 import static org.junit.Assert.assertEquals;
 
 public class TestHangmanDiscovered {
@@ -11,34 +12,25 @@ public class TestHangmanDiscovered {
     private static final String TWO_CONSONANTS_WORD = "bt";
     private static final String ONE_VOWEL_WORD = "a";
     private static final String ANOTHER_ONE_VOWEL_WORD = "o";
-    private static final char CONTAINED_CONSONANT = 'w';
 
     @Test
     public void one_consonant_word_when_game_start() {
-        Hangman hangman = new Hangman(ONE_CONSONANT_WORD);
-
-        assertEquals(PLACEHOLDER, hangman.discovered());
+        assertDiscoveredEquals(PLACEHOLDER, ONE_CONSONANT_WORD);
     }
 
     @Test
     public void two_consonants_word_when_game_start() {
-        Hangman hangman = new Hangman(TWO_CONSONANTS_WORD);
-
-        assertEquals(PLACEHOLDER + PLACEHOLDER, hangman.discovered());
+        assertDiscoveredEquals(PLACEHOLDER + PLACEHOLDER, TWO_CONSONANTS_WORD);
     }
 
     @Test
     public void one_vowel_word_when_game_start() {
-        Hangman hangman = new Hangman(ONE_VOWEL_WORD);
-
-        assertEquals(ONE_VOWEL_WORD, hangman.discovered());
+        assertDiscoveredEquals(ONE_VOWEL_WORD, ONE_VOWEL_WORD);
     }
 
     @Test
     public void another_one_vowel_word_when_game_start() {
-        Hangman hangman = new Hangman(ANOTHER_ONE_VOWEL_WORD);
-
-        assertEquals(ANOTHER_ONE_VOWEL_WORD, hangman.discovered());
+        assertDiscoveredEquals(ANOTHER_ONE_VOWEL_WORD, ANOTHER_ONE_VOWEL_WORD);
     }
 
     @Test
@@ -49,4 +41,11 @@ public class TestHangmanDiscovered {
 
         assertEquals(CONTAINED_CONSONANT + "o__", hangman.discovered());
     }
+
+    private void assertDiscoveredEquals(String expectedDiscovered, String word) {
+        Hangman hangman = new Hangman(word);
+
+        assertEquals(expectedDiscovered, hangman.discovered());
+    }
+
 }
