@@ -17,30 +17,30 @@ public class TestHangmanTries {
 
     @Test
     public void tries_when_type_a_vowel() {
-        hangman.typeWithoutCheckGameOver(VOWEL);
+        hangman.typeWithoutCheckGameOverAndGameWin(VOWEL);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
     }
 
     @Test
     public void tries_when_type_a_contained_consonant() {
-        hangman.typeWithoutCheckGameOver(CONTAINED_CONSONANT);
+        hangman.typeWithoutCheckGameOverAndGameWin(CONTAINED_CONSONANT);
 
         assertEquals(MAX_TRIES, hangman.tries());
     }
 
     @Test
     public void tries_when_type_a_not_contained_consonant() {
-        hangman.typeWithoutCheckGameOver(NOT_CONTAINED_CONSONANT);
+        hangman.typeWithoutCheckGameOverAndGameWin(NOT_CONTAINED_CONSONANT);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
     }
 
     @Test
     public void tries_when_type_a_contained_consonant_again() {
-        hangman.typeWithoutCheckGameOver(CONTAINED_CONSONANT);
+        hangman.typeWithoutCheckGameOverAndGameWin(CONTAINED_CONSONANT);
 
-        hangman.typeWithoutCheckGameOver(CONTAINED_CONSONANT);
+        hangman.typeWithoutCheckGameOverAndGameWin(CONTAINED_CONSONANT);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
     }

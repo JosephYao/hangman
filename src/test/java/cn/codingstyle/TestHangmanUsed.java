@@ -16,23 +16,23 @@ public class TestHangmanUsed {
 
     @Test
     public void used_when_type_a_vowel() {
-        hangman.typeWithoutCheckGameOver(VOWEL);
+        hangman.typeWithoutCheckGameOverAndGameWin(VOWEL);
 
         assertEquals(ALL_VOWELS, hangman.used());
     }
 
     @Test
     public void used_when_type_a_consonant() {
-        hangman.typeWithoutCheckGameOver(CONSONANT);
+        hangman.typeWithoutCheckGameOverAndGameWin(CONSONANT);
 
         assertEquals(ALL_VOWELS + CONSONANT, hangman.used());
     }
 
     @Test
     public void used_when_type_a_consonant_again() {
-        hangman.typeWithoutCheckGameOver(CONSONANT);
+        hangman.typeWithoutCheckGameOverAndGameWin(CONSONANT);
 
-        hangman.typeWithoutCheckGameOver(CONSONANT);
+        hangman.typeWithoutCheckGameOverAndGameWin(CONSONANT);
 
         assertEquals(ALL_VOWELS + CONSONANT, hangman.used());
     }

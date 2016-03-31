@@ -22,7 +22,7 @@ public class Hangman {
         return used;
     }
 
-    public void type(char c, Runnable gameOver) {
+    public void type(char c, Runnable gameOver, Runnable gameWin) {
         decreaseTries(c);
         appendCharToUsed(c);
         checkGameOver(gameOver);

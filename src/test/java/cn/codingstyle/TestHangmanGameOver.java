@@ -15,7 +15,7 @@ public class TestHangmanGameOver {
 
     @Test
     public void game_not_over_when_game_start() {
-        hangman.type(ANY_CHAR, mockGameOver);
+        hangman.typeAndCheckGameOver(ANY_CHAR, mockGameOver);
 
         verify(mockGameOver, never()).run();
     }
@@ -24,12 +24,12 @@ public class TestHangmanGameOver {
     public void game_over_when_last_try_failed() {
         allTriesUsedExceptLast();
 
-        hangman.type(ANY_CHAR, mockGameOver);
+        hangman.typeAndCheckGameOver(ANY_CHAR, mockGameOver);
 
         verify(mockGameOver).run();
     }
 
     private void allTriesUsedExceptLast() {
-        IntStream.range(0, MAX_TRIES - 1).forEach(i -> hangman.typeWithoutCheckGameOver(ANY_CHAR));
+        IntStream.range(0, MAX_TRIES - 1).forEach(i -> hangman.typeWithoutCheckGameOverAndGameWin(ANY_CHAR));
     }
 }

@@ -37,7 +37,7 @@ public class TestHangmanDiscovered {
     public void discovered_when_type_a_contained_consonant() {
         HangmanForTest hangman = new HangmanForTest("word");
 
-        hangman.typeWithoutCheckGameOver(CONTAINED_CONSONANT);
+        hangman.typeWithoutCheckGameOverAndGameWin(CONTAINED_CONSONANT);
 
         assertEquals(CONTAINED_CONSONANT + "o__", hangman.discovered());
     }
