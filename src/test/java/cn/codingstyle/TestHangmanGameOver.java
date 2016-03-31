@@ -10,12 +10,13 @@ import static org.mockito.Mockito.*;
 
 public class TestHangmanGameOver {
 
-    HangmanForTest hangman = new HangmanForTest("word");
+    Hangman hangman = new Hangman("word");
     Runnable mockGameOver = mock(Runnable.class);
 
     @Test
     public void game_not_over_when_game_start() {
-        hangman.typeAndCheckGameOver(ANY_CHAR, mockGameOver);
+        hangman.type(ANY_CHAR)
+        .checkGameOver(mockGameOver);
 
         verify(mockGameOver, never()).run();
     }
@@ -24,12 +25,13 @@ public class TestHangmanGameOver {
     public void game_over_when_last_try_failed() {
         allTriesUsedExceptLast();
 
-        hangman.typeAndCheckGameOver(ANY_CHAR, mockGameOver);
+        hangman.type(ANY_CHAR)
+        .checkGameOver(mockGameOver);
 
         verify(mockGameOver).run();
     }
 
     private void allTriesUsedExceptLast() {
-        IntStream.range(0, MAX_TRIES - 1).forEach(i -> hangman.typeWithoutCheckGameOverAndGameWin(ANY_CHAR));
+        IntStream.range(0, MAX_TRIES - 1).forEach(i -> hangman.type(ANY_CHAR));
     }
 }

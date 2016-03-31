@@ -24,11 +24,10 @@ public class Hangman {
         return used;
     }
 
-    public void type(char c, Runnable gameOver, Runnable gameWin) {
+    public Judge type(char c) {
         decreaseTries(c);
         appendCharToUsed(c);
-        judge.checkGameOver(gameOver);
-        judge.checkGameWin(gameWin);
+        return judge;
     }
 
     private void decreaseTries(char c) {

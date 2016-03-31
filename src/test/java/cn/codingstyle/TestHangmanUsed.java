@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TestHangmanUsed {
 
-    HangmanForTest hangman = new HangmanForTest("word");
+    Hangman hangman = new Hangman("word");
 
     @Test
     public void used_when_game_start() {
@@ -16,23 +16,23 @@ public class TestHangmanUsed {
 
     @Test
     public void used_when_type_a_vowel() {
-        hangman.typeWithoutCheckGameOverAndGameWin(VOWEL);
+        hangman.type(VOWEL);
 
         assertEquals(ALL_VOWELS, hangman.used());
     }
 
     @Test
     public void used_when_type_a_consonant() {
-        hangman.typeWithoutCheckGameOverAndGameWin(CONSONANT);
+        hangman.type(CONSONANT);
 
         assertEquals(ALL_VOWELS + CONSONANT, hangman.used());
     }
 
     @Test
     public void used_when_type_a_consonant_again() {
-        hangman.typeWithoutCheckGameOverAndGameWin(CONSONANT);
+        hangman.type(CONSONANT);
 
-        hangman.typeWithoutCheckGameOverAndGameWin(CONSONANT);
+        hangman.type(CONSONANT);
 
         assertEquals(ALL_VOWELS + CONSONANT, hangman.used());
     }

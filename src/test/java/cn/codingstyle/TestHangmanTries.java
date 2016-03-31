@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TestHangmanTries {
 
-    HangmanForTest hangman = new HangmanForTest("word");
+    Hangman hangman = new Hangman("word");
 
     @Test
     public void tries_when_game_start() {
@@ -17,30 +17,30 @@ public class TestHangmanTries {
 
     @Test
     public void tries_when_type_a_vowel() {
-        hangman.typeWithoutCheckGameOverAndGameWin(VOWEL);
+        hangman.type(VOWEL);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
     }
 
     @Test
     public void tries_when_type_a_contained_consonant() {
-        hangman.typeWithoutCheckGameOverAndGameWin(CONTAINED_CONSONANT);
+        hangman.type(CONTAINED_CONSONANT);
 
         assertEquals(MAX_TRIES, hangman.tries());
     }
 
     @Test
     public void tries_when_type_a_not_contained_consonant() {
-        hangman.typeWithoutCheckGameOverAndGameWin(NOT_CONTAINED_CONSONANT);
+        hangman.type(NOT_CONTAINED_CONSONANT);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
     }
 
     @Test
     public void tries_when_type_a_contained_consonant_again() {
-        hangman.typeWithoutCheckGameOverAndGameWin(CONTAINED_CONSONANT);
+        hangman.type(CONTAINED_CONSONANT);
 
-        hangman.typeWithoutCheckGameOverAndGameWin(CONTAINED_CONSONANT);
+        hangman.type(CONTAINED_CONSONANT);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
     }
