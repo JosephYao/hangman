@@ -7,6 +7,8 @@ import static org.junit.Assert.assertEquals;
 public class HangmanUsedTest {
 
     private static final String ALL_VOWELS = "aeiou";
+    private static final char VOWEL = 'a';
+    private static final char CONSONANT = 'b';
 
     Hangman hangman = new Hangman("word");
 
@@ -17,8 +19,15 @@ public class HangmanUsedTest {
 
     @Test
     public void all_vowels_when_type_one_vowel() {
-        hangman.type('a');
+        hangman.type(VOWEL);
 
         assertEquals(ALL_VOWELS, hangman.used());
+    }
+
+    @Test
+    public void all_vowels_plus_one_consonant_when_type_one_consonant() {
+        hangman.type(CONSONANT);
+
+        assertEquals(ALL_VOWELS + CONSONANT, hangman.used());
     }
 }
