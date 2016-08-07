@@ -30,4 +30,13 @@ public class HangmanUsedTest {
 
         assertEquals(ALL_VOWELS + CONSONANT, hangman.used());
     }
+
+    @Test
+    public void one_consonant_only_show_once_when_type_twice() {
+        hangman.type(CONSONANT);
+
+        hangman.type(CONSONANT);
+
+        assertEquals(ALL_VOWELS + CONSONANT, hangman.used());
+    }
 }

@@ -25,6 +25,7 @@ public class Hangman {
     private String typedConsonants() {
         return typed.stream()
                 .filter(this::isConsonant)
+                .distinct()
                 .map(Object::toString)
                 .collect(joining());
     }
