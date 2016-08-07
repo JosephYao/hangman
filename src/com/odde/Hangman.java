@@ -15,4 +15,8 @@ public class Hangman {
     public String used() {
         return ALL_VOWELS;
     }
+
+    public void type(char c) {
+
+    }
 }
