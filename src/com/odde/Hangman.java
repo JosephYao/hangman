@@ -34,6 +34,8 @@ public class Hangman {
 
     public void type(char c, Runnable afterGameOver) {
         typed.add(c);
+        if (tries() == 0)
+            afterGameOver.run();
     }
 
     public int tries() {

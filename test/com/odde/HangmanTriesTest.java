@@ -7,8 +7,6 @@ import static org.junit.Assert.assertEquals;
 
 public class HangmanTriesTest {
 
-    private static final int MAX_TRIES = 12;
-
     HangmanHelper hangman = new HangmanHelper("word");
 
     @Test
