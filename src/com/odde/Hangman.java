@@ -41,13 +41,21 @@ public class Hangman {
     }
 
     private int numberOfFailedTypes() {
-        return typed.size() - ALL_VOWELS.length() - numberOfConsonant();
+        return typed.size() - ALL_VOWELS.length() - numberOfCorrectConsonants();
     }
 
-    private int numberOfConsonant() {
+    private int numberOfCorrectConsonants() {
         return (int) typed.stream()
-                .filter(this::isConsonant)
+                .filter(this::isCorrectConsonant)
                 .count();
+    }
+
+    private boolean isCorrectConsonant(Character c) {
+        return isConsonant(c) && isPartOfWord(c);
+    }
+
+    private boolean isPartOfWord(Character c) {
+        return word.indexOf(c) >= 0;
     }
 
     private boolean isConsonant(Character c) {
