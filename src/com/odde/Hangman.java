@@ -67,4 +67,8 @@ public class Hangman {
     private boolean isConsonant(Character c) {
         return ALL_VOWELS.indexOf(c) == -1;
     }
+
+    public String discovered() {
+        return word;
+    }
 }
