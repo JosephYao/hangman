@@ -6,6 +6,7 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 public class Hangman {
+    private static final int MAX_TRIES = 12;
     private final String word;
     private List<Character> typed = allVowels();
 
@@ -34,4 +35,7 @@ public class Hangman {
         typed.add(c);
     }
 
+    public int tries() {
+        return MAX_TRIES;
+    }
 }
