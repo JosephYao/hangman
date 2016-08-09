@@ -7,11 +7,12 @@ import static java.util.stream.Collectors.toList;
 
 public class Hangman {
     private static final int MAX_TRIES = 12;
+    private static final String ALL_VOWELS = "aeiou";
     private final String word;
     private List<Character> typed = allVowels();
 
     private List<Character> allVowels() {
-        return "aeiou".chars()
+        return ALL_VOWELS.chars()
                 .mapToObj(i -> (char)i)
                 .collect(toList());
     }
@@ -36,6 +37,10 @@ public class Hangman {
     }
 
     public int tries() {
-        return MAX_TRIES;
+        return MAX_TRIES - numberOfTypes();
+    }
+
+    private int numberOfTypes() {
+        return typed.size() - ALL_VOWELS.length();
     }
 }

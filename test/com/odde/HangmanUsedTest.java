@@ -2,12 +2,12 @@ package com.odde;
 
 import org.junit.Test;
 
+import static com.odde.TestHelper.VOWEL;
 import static org.junit.Assert.assertEquals;
 
 public class HangmanUsedTest {
 
     private static final String ALL_VOWELS = "aeiou";
-    private static final char VOWEL = 'a';
     private static final char CONSONANT = 'b';
 
     Hangman hangman = new Hangman("word");

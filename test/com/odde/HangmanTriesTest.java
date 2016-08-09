@@ -2,16 +2,24 @@ package com.odde;
 
 import org.junit.Test;
 
+import static com.odde.TestHelper.*;
 import static org.junit.Assert.assertEquals;
 
 public class HangmanTriesTest {
 
     private static final int MAX_TRIES = 12;
 
+    Hangman hangman = new Hangman("word");
+
     @Test
     public void max_tries_when_game_start() {
-        Hangman hangman = new Hangman("word");
-
         assertEquals(MAX_TRIES, hangman.tries());
+    }
+
+    @Test
+    public void reduce_one_when_type_a_vowel() {
+        hangman.type(VOWEL);
+
+        assertEquals(MAX_TRIES - 1, hangman.tries());
     }
 }
