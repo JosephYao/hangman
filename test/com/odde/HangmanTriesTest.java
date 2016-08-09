@@ -8,6 +8,7 @@ import static org.junit.Assert.assertEquals;
 public class HangmanTriesTest {
 
     private static final int MAX_TRIES = 12;
+    private static final char CORRECT_CONSONANT = 'w';
 
     Hangman hangman = new Hangman("word");
 
@@ -21,5 +22,12 @@ public class HangmanTriesTest {
         hangman.type(VOWEL);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
+    }
+
+    @Test
+    public void max_tries_unchanged_when_type_a_correct_consonant() {
+        hangman.type(CORRECT_CONSONANT);
+
+        assertEquals(MAX_TRIES, hangman.tries());
     }
 }

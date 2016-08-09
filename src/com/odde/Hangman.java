@@ -11,14 +11,14 @@ public class Hangman {
     private final String word;
     private List<Character> typed = allVowels();
 
+    public Hangman(String word) {
+        this.word = word;
+    }
+
     private List<Character> allVowels() {
         return ALL_VOWELS.chars()
                 .mapToObj(i -> (char)i)
                 .collect(toList());
-    }
-
-    public Hangman(String word) {
-        this.word = word;
     }
 
     public int length() {
@@ -37,10 +37,20 @@ public class Hangman {
     }
 
     public int tries() {
-        return MAX_TRIES - numberOfTypes();
+        return MAX_TRIES - numberOfFailedTypes();
     }
 
-    private int numberOfTypes() {
-        return typed.size() - ALL_VOWELS.length();
+    private int numberOfFailedTypes() {
+        return typed.size() - ALL_VOWELS.length() - numberOfConsonant();
+    }
+
+    private int numberOfConsonant() {
+        return (int) typed.stream()
+                .filter(this::isConsonant)
+                .count();
+    }
+
+    private boolean isConsonant(Character c) {
+        return ALL_VOWELS.indexOf(c) == -1;
     }
 }
