@@ -9,4 +9,8 @@ public class HangmanHelper extends Hangman {
     public HangmanHelper(String word) {
         super(word);
     }
+
+    public void typeButNotCareGameOver(char c) {
+        type(c, () -> {});
+    }
 }
