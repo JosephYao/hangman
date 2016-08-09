@@ -1,6 +1,7 @@
 package com.odde;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
@@ -26,8 +27,7 @@ public class Hangman {
     }
 
     public String used() {
-        return typed.stream()
-                .distinct()
+        return uniqueTypedChars()
                 .map(Object::toString)
                 .collect(joining());
     }
@@ -45,9 +45,13 @@ public class Hangman {
     }
 
     private int numberOfCorrectConsonants() {
-        return (int) typed.stream()
+        return (int) uniqueTypedChars()
                 .filter(this::isCorrectConsonant)
                 .count();
+    }
+
+    private Stream<Character> uniqueTypedChars() {
+        return typed.stream().distinct();
     }
 
     private boolean isCorrectConsonant(Character c) {

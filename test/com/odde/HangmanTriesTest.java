@@ -37,4 +37,13 @@ public class HangmanTriesTest {
         assertEquals(MAX_TRIES - 1, hangman.tries());
     }
 
+    @Test
+    public void reduce_one_when_type_a_correct_consonant_again() {
+        hangman.type(CORRECT_CONSONANT);
+
+        hangman.type(CORRECT_CONSONANT);
+
+        assertEquals(MAX_TRIES - 1, hangman.tries());
+    }
+
 }
