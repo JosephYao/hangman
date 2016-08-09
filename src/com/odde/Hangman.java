@@ -32,7 +32,7 @@ public class Hangman {
                 .collect(joining());
     }
 
-    public void type(char c) {
+    public void type(char c, Runnable afterGameOver) {
         typed.add(c);
     }
 

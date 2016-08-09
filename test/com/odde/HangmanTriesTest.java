@@ -18,30 +18,30 @@ public class HangmanTriesTest {
 
     @Test
     public void reduce_one_when_type_a_vowel() {
-        hangman.type(VOWEL);
+        hangman.type(VOWEL, null);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
     }
 
     @Test
     public void max_tries_unchanged_when_type_a_correct_consonant() {
-        hangman.type(CORRECT_CONSONANT);
+        hangman.type(CORRECT_CONSONANT, null);
 
         assertEquals(MAX_TRIES, hangman.tries());
     }
 
     @Test
     public void reduce_one_when_type_a_wrong_consonant() {
-        hangman.type(WRONG_CONSONANT);
+        hangman.type(WRONG_CONSONANT, null);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
     }
 
     @Test
     public void reduce_one_when_type_a_correct_consonant_again() {
-        hangman.type(CORRECT_CONSONANT);
+        hangman.type(CORRECT_CONSONANT, null);
 
-        hangman.type(CORRECT_CONSONANT);
+        hangman.type(CORRECT_CONSONANT, null);
 
         assertEquals(MAX_TRIES - 1, hangman.tries());
     }
