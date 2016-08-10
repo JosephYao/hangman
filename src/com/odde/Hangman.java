@@ -77,9 +77,9 @@ public class Hangman {
 
     private String discoveredChar(int i) {
         char c = (char) i;
-        if (isConsonant(c))
-            return PLACEHOLDER;
-        else
+        if (typed.contains(c))
             return String.valueOf(c);
+        else
+            return PLACEHOLDER;
     }
 }
