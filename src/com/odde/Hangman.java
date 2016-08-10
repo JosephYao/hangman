@@ -9,6 +9,7 @@ import static java.util.stream.Collectors.toList;
 public class Hangman {
     private static final int MAX_TRIES = 12;
     private static final String ALL_VOWELS = "aeiou";
+    private static final String PLACEHOLDER = "_";
     private final String word;
     private List<Character> typed = allVowels();
 
@@ -69,6 +70,9 @@ public class Hangman {
     }
 
     public String discovered() {
+        if (!ALL_VOWELS.contains(word))
+            return PLACEHOLDER;
+
         return word;
     }
 }
