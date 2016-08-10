@@ -70,9 +70,16 @@ public class Hangman {
     }
 
     public String discovered() {
-        if (!ALL_VOWELS.contains(word))
-            return PLACEHOLDER;
+        return word.chars()
+                .mapToObj(this::discoveredChar)
+                .collect(joining());
+    }
 
-        return word;
+    private String discoveredChar(int i) {
+        char c = (char) i;
+        if (isConsonant(c))
+            return PLACEHOLDER;
+        else
+            return String.valueOf(c);
     }
 }

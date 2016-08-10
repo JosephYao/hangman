@@ -9,18 +9,27 @@ public class HangmanDiscoveredTest {
     private static final String VOWEL_WORD = "a";
     private static final String ONE_CONSONANT_WORD = "b";
     private static final String PLACEHOLDER = "_";
+    private static final String TWO_CONSONANT_WORD = "bt";
 
     @Test
     public void all_vowel_word() {
-        Hangman hangman = new Hangman(VOWEL_WORD);
-
-        assertEquals(VOWEL_WORD, hangman.discovered());
+        assertDiscoveredEquals(VOWEL_WORD, VOWEL_WORD);
     }
 
     @Test
     public void one_consonant_word() {
-        Hangman hangman = new Hangman(ONE_CONSONANT_WORD);
-
-        assertEquals(PLACEHOLDER, hangman.discovered());
+        assertDiscoveredEquals(PLACEHOLDER, ONE_CONSONANT_WORD);
     }
+
+    @Test
+    public void two_consonant_word() {
+        assertDiscoveredEquals(PLACEHOLDER + PLACEHOLDER, TWO_CONSONANT_WORD);
+    }
+
+    private void assertDiscoveredEquals(String expected, String word) {
+        Hangman hangman = new Hangman(word);
+
+        assertEquals(expected, hangman.discovered());
+    }
+
 }
