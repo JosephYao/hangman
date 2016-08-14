@@ -33,10 +33,9 @@ public class Hangman {
                 .collect(joining());
     }
 
-    public void type(char c, Runnable afterGameOver, Runnable afterGameWin) {
+    public Judge type(char c) {
         typed.add(String.valueOf(c));
-        judge.checkGameOver(afterGameOver);
-        judge.checkGameWin(afterGameWin);
+        return judge;
     }
 
     public int tries() {
