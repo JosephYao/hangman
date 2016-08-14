@@ -35,6 +35,8 @@ public class Hangman {
         typed.add(String.valueOf(c));
         if (tries() == 0)
             afterGameOver.run();
+        if (word.equals(discovered()))
+            afterGameWin.run();
     }
 
     public int tries() {
