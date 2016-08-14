@@ -13,7 +13,7 @@ public class Hangman {
     private static final String PLACEHOLDER = "_";
     private final String word;
     private final Judge judge;
-    private List<String> typed = allVowels();
+    private final List<String> typed = allVowels();
 
     public Hangman(String word) {
         this.word = word;
@@ -29,8 +29,7 @@ public class Hangman {
     }
 
     public String used() {
-        return uniqueTypedChars()
-                .collect(joining());
+        return uniqueTypedChars().collect(joining());
     }
 
     public Judge type(char c) {
