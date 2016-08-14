@@ -19,23 +19,23 @@ public class HangmanUsedTest {
 
     @Test
     public void all_vowels_when_type_one_vowel() {
-        hangman.typeButNotCareGameOver(VOWEL);
+        hangman.typeButNotCareGameOverOrWin(VOWEL);
 
         assertEquals(ALL_VOWELS, hangman.used());
     }
 
     @Test
     public void all_vowels_plus_one_consonant_when_type_one_consonant() {
-        hangman.typeButNotCareGameOver(CONSONANT);
+        hangman.typeButNotCareGameOverOrWin(CONSONANT);
 
         assertEquals(ALL_VOWELS + CONSONANT, hangman.used());
     }
 
     @Test
     public void one_consonant_only_show_once_when_type_twice() {
-        hangman.typeButNotCareGameOver(CONSONANT);
+        hangman.typeButNotCareGameOverOrWin(CONSONANT);
 
-        hangman.typeButNotCareGameOver(CONSONANT);
+        hangman.typeButNotCareGameOverOrWin(CONSONANT);
 
         assertEquals(ALL_VOWELS + CONSONANT, hangman.used());
     }

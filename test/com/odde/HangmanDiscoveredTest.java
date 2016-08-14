@@ -31,7 +31,7 @@ public class HangmanDiscoveredTest {
     public void discover_one_char_when_type_a_correct_consonant() {
         HangmanHelper hangman = new HangmanHelper("word");
 
-        hangman.typeButNotCareGameOver(CORRECT_CONSONANT);
+        hangman.typeButNotCareGameOverOrWin(CORRECT_CONSONANT);
 
         assertEquals("wo__", hangman.discovered());
     }

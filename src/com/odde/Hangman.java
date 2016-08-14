@@ -31,7 +31,7 @@ public class Hangman {
                 .collect(joining());
     }
 
-    public void type(char c, Runnable afterGameOver) {
+    public void type(char c, Runnable afterGameOver, Runnable afterGameWin) {
         typed.add(String.valueOf(c));
         if (tries() == 0)
             afterGameOver.run();
