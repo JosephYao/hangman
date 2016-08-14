@@ -38,11 +38,11 @@ public class Hangman {
     }
 
     public int tries() {
-        return MAX_TRIES - numberOfWrongTypes();
+        return MAX_TRIES - numberOfTypedChars() + numberOfCorrectConsonants();
     }
 
-    private int numberOfWrongTypes() {
-        return typed.size() - ALL_VOWELS.length() - numberOfCorrectConsonants();
+    private int numberOfTypedChars() {
+        return typed.size() - ALL_VOWELS.length();
     }
 
     private int numberOfCorrectConsonants() {
