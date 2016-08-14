@@ -12,10 +12,12 @@ public class Hangman {
     private static final String ALL_VOWELS = "aeiou";
     private static final String PLACEHOLDER = "_";
     private final String word;
+    private final Judge judge;
     private List<String> typed = allVowels();
 
     public Hangman(String word) {
         this.word = word;
+        this.judge = new Judge(this, word);
     }
 
     private List<String> allVowels() {
@@ -33,10 +35,8 @@ public class Hangman {
 
     public void type(char c, Runnable afterGameOver, Runnable afterGameWin) {
         typed.add(String.valueOf(c));
-        if (tries() == 0)
-            afterGameOver.run();
-        if (word.equals(discovered()))
-            afterGameWin.run();
+        judge.checkGameOver(afterGameOver);
+        judge.checkGameWin(afterGameWin);
     }
 
     public int tries() {
